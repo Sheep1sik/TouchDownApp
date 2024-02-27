@@ -33,10 +33,22 @@ struct ContentView: View {
                         FeaturedTabView()
                             .frame(width: 400, height: 235)
                             .padding(.vertical, 20)
+                        
+                        CategoryGridView()
+                        
+                        TitleView(title: "Helmets")
+                        
+                        LazyVGrid(columns: gridLayout, spacing: 15,content: {
+                            ForEach(products) { product in
+                                ProductItemView(product: product)
+                            } //: LOOP
+                        }) //: GRID
+                        .padding(15)
 
                         
                         FooterView()
                             .padding(.horizontal)
+                        
                     } //: VSTACK
                 }) //: SCROLL
                 
